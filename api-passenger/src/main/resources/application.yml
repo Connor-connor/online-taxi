@@ -1,2 +1,4 @@
-#server: #TODO: 为什么改变端口号无效？
-#    port: 8081
+server: # 为什么改变端口号无效？使用pom形式打包，会导致target中没有application.yml文件，所以无法修改端口号，需要在target\classes下添加application.yml
+    port: 8081
+#    address: localhost
+#    port: ${port:8081}

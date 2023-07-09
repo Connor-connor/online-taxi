@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * @author LHP
  * @date 2023-07-10 0:58
- * @description
+ * @description api-passenger测试控制器
  */
 
 @RestController

@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * @author LHP
  * @date 2023-07-10 0:59
- * @description
+ * @description api-passenger启动类
  */
 
 @SpringBootApplication
