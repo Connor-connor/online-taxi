@@ -2,6 +2,7 @@ package com.sdu.apipassenger.controller;
 
 import com.sdu.apipassenger.request.VerificationCodeDTO;
 import com.sdu.apipassenger.service.VerificationCodeService;
+import com.sdu.internalcommon.dto.ResponseResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,11 +21,11 @@ public class VerificationCodeController {
     private VerificationCodeService verificationCodeService;
 
     @GetMapping("/verification-code")
-    public String verificationCode(@RequestBody VerificationCodeDTO verificationCodeDTO) {
+    public ResponseResult verificationCode(@RequestBody VerificationCodeDTO verificationCodeDTO) {
 
         // 接收参数（获取手机号）
         String passengerPhone = verificationCodeDTO.getPassengerPhone();
-        System.out.println("接收到的手机号参数：" + passengerPhone);
+        // System.out.println("接收到的手机号参数：" + passengerPhone);
 
         return verificationCodeService.generatorCode(passengerPhone);
     }
