@@ -5,6 +5,7 @@ import com.sdu.apipassenger.service.VerificationCodeService;
 import com.sdu.internalcommon.dto.ResponseResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,5 +29,16 @@ public class VerificationCodeController {
         // System.out.println("接收到的手机号参数：" + passengerPhone);
 
         return verificationCodeService.generatorCode(passengerPhone);
+    }
+
+    @PostMapping("/verification-code-check")
+    public ResponseResult checkVerificationCode(@RequestBody VerificationCodeDTO verificationCodeDTO) {
+        // 接收参数（获取手机号）
+        String passengerPhone = verificationCodeDTO.getPassengerPhone();
+        String verificationCode = verificationCodeDTO.getVerificationCode();
+
+        System.out.println("手机号：" + passengerPhone + "验证码：" + verificationCode);
+
+        return verificationCodeService.checkCode(passengerPhone, verificationCode);
     }
 }

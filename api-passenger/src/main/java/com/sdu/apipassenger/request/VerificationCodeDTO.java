@@ -1,18 +1,17 @@
 package com.sdu.apipassenger.request;
 
+import lombok.Data;
+
 /**
  * @author LHP
  * @date 2023-07-10 1:15
  * @description 验证码请求参数类
  */
+
+@Data
 public class VerificationCodeDTO {
+
     private String passengerPhone;
 
-    public String getPassengerPhone() {
-        return passengerPhone;
-    }
-
-    public void setPassengerPhone(String passengerPhone) {
-        this.passengerPhone = passengerPhone;
-    }
+    private String verificationCode;
 }

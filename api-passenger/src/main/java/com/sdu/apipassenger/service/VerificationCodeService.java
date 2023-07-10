@@ -3,6 +3,7 @@ package com.sdu.apipassenger.service;
 import com.sdu.apipassenger.remote.ServiceVerificationcodeClient;
 import com.sdu.internalcommon.dto.ResponseResult;
 import com.sdu.internalcommon.response.NumberCodeResponse;
+import com.sdu.internalcommon.response.TokenResponse;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -28,6 +29,11 @@ public class VerificationCodeService {
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
 
+    /**
+     * 生成验证码
+     * @param passengerPhone 乘客手机号
+     * @return
+     */
     public ResponseResult generatorCode(String passengerPhone) {
         // 调用（远程）验证码服务，获取验证码
         // System.out.println("调用（远程）验证码服务，获取验证码");
@@ -48,5 +54,31 @@ public class VerificationCodeService {
 
         // 返回值
         return ResponseResult.success("");
+    }
+
+    /**
+     * 校验验证码
+     * @param passengerPhone 乘客手机号
+     * @param verificationCode 验证码
+     * @return
+     */
+    public ResponseResult checkCode(String passengerPhone, String verificationCode) {
+        // 根据手机号，去redis中取出验证码
+        System.out.println("根据手机号，去redis中取出验证码");
+
+        // 校验验证码
+        System.out.println("校验验证码");
+
+        // 判断原来是否有用户，并进行相应的处理
+        System.out.println("判断原来是否有用户，并进行相应的处理");
+
+        // 颁发令牌
+        System.out.println("颁发令牌");
+
+        // 响应
+        TokenResponse tokenResponse = new TokenResponse();
+        tokenResponse.setToken("token value");
+
+        return ResponseResult.success(tokenResponse);
     }
 }
