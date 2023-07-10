@@ -2,3 +2,11 @@ server: # 为什么改变端口号无效？使用pom形式打包，会导致targ
     port: 8081
 #    address: localhost
 #    port: ${port:8081}
+
+spring:
+    cloud:
+        nacos:
+            discovery:
+                server-addr: 127.0.0.1:8848
+    application:
+      name: api-passenger

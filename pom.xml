@@ -5,6 +5,7 @@
 
     <modules> <!-- 子项目 -->
         <module>api-passenger</module>
+        <module>service-verificationcode</module>
     </modules>
 
     <parent>
@@ -21,7 +22,7 @@
     <packaging>pom</packaging>
 
     <properties>
-        <java.version>8</java.version>
+        <java.version>1.8</java.version>
     </properties>
 
     <dependencies>
